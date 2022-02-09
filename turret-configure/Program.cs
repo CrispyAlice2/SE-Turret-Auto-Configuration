@@ -25,12 +25,7 @@ namespace IngameScript
         
 
 
-        List<IMyMotorAdvancedStator> stator = new List<IMyMotorAdvancedStator>();
-        List<IMyCameraBlock> cameras = new List<IMyCameraBlock>();
-        List<IMyFunctionalBlock> allFunctionalBlocks = new List<IMyFunctionalBlock>();
-        List<IMyUserControllableGun> guns = new List<IMyUserControllableGun>();
-        List<IMyTurretControlBlock> controllers = new List<IMyTurretControlBlock>();
-        List<Turret> turrets = new List<Turret>();
+        
 
         public class Turret
         {
@@ -64,6 +59,13 @@ namespace IngameScript
 
         public void Main(string argument, UpdateType updateSource)
         {
+            List<IMyMotorAdvancedStator> stator = new List<IMyMotorAdvancedStator>();
+            List<IMyCameraBlock> cameras = new List<IMyCameraBlock>();
+            List<IMyFunctionalBlock> allFunctionalBlocks = new List<IMyFunctionalBlock>();
+            List<IMyUserControllableGun> guns = new List<IMyUserControllableGun>();
+            List<IMyTurretControlBlock> controllers = new List<IMyTurretControlBlock>();
+            List<Turret> turrets = new List<Turret>();
+
             GridTerminalSystem.GetBlocksOfType(stator);
             GridTerminalSystem.GetBlocksOfType(cameras);
             GridTerminalSystem.GetBlocksOfType(allFunctionalBlocks);
