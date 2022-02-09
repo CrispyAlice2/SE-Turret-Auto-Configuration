@@ -23,10 +23,7 @@ namespace IngameScript
     partial class Program : MyGridProgram
     {
         
-        //This script allows easy configuration of vanilla player made turrets
-        // It probably won't work if your ship contains rotors not used in a turret
-        // It also wont work well if anything considered a "functional block" is on the turret subgrid,
-        // other than gyroscopes and cameras. Please let me know if you have a burning desire to add something else
+
 
         List<IMyMotorAdvancedStator> stator = new List<IMyMotorAdvancedStator>();
         List<IMyCameraBlock> cameras = new List<IMyCameraBlock>();
@@ -55,17 +52,30 @@ namespace IngameScript
         public Program()
         {
                         
+            
+
+        }
+
+        public void Save()
+        {
+            
+        }
+
+        public void Main(string argument, UpdateType updateSource)
+        {
             GridTerminalSystem.GetBlocksOfType(stator);
             GridTerminalSystem.GetBlocksOfType(cameras);
             GridTerminalSystem.GetBlocksOfType(allFunctionalBlocks);
             GridTerminalSystem.GetBlocksOfType(controllers);
             List<IMyFunctionalBlock> weapons = new List<IMyFunctionalBlock>();
-            foreach (IMyFunctionalBlock block in allFunctionalBlocks) {
-                if (!block.DisplayNameText.Contains("Gyro") & !block.DisplayNameText.Contains("Camera")){
+            foreach (IMyFunctionalBlock block in allFunctionalBlocks)
+            {
+                if (!block.DisplayNameText.Contains("Gyro") & !block.DisplayNameText.Contains("Camera"))
+                {
                     weapons.Add(block);
                 }
             }
-            
+
 
             foreach (IMyMotorAdvancedStator stat in stator)
             {
@@ -92,7 +102,7 @@ namespace IngameScript
                         tur.final_subgrid = tur.second_stator.TopGrid;
                     }
                 }
-                
+
 
                 try
                 {
@@ -126,7 +136,7 @@ namespace IngameScript
 
             }
 
-            for (int i = 0; i< turrets.Count; i++)
+            for (int i = 0; i < turrets.Count; i++)
             {
                 try
                 {
@@ -136,27 +146,27 @@ namespace IngameScript
                 {
                     Echo("Probably need to add more turret controller blocks");
                 }
-                
+
 
             }
 
             //configure
             for (int i = 0; i < turrets.Count; i++)
             {
-                
+
                 try
                 {
-                    
-                  
+
+
                     Turret tur = turrets[i];
                     tur.controller.RemoveTools(allFunctionalBlocks);
-                  
-                   
-                   
+
+
+
                     tur.controller.AddTools(tur.guns);
-                    
+
                     tur.controller.AzimuthRotor = tur.first_stator;
-        
+
                     tur.controller.ElevationRotor = tur.second_stator;
                     if (tur.camera != null)
                     {
@@ -175,19 +185,8 @@ namespace IngameScript
                 }
             }
             Echo("Turrets Ready");
-            
 
 
-        }
-
-        public void Save()
-        {
-            
-        }
-
-        public void Main(string argument, UpdateType updateSource)
-        {
-            
         }
     }
 }
