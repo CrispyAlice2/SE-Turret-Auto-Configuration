@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32126.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "turret-configure", "turret-configure\turret-configure.csproj", "{515109F1-8284-49C8-88AC-9BBF404F8E9F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{515109F1-8284-49C8-88AC-9BBF404F8E9F}.Debug|x64.ActiveCfg = Debug|x64
+		{515109F1-8284-49C8-88AC-9BBF404F8E9F}.Debug|x64.Build.0 = Debug|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9E182C5A-FBF6-4ECF-82E2-5BB431DBDFBD}
+	EndGlobalSection
+EndGlobal
