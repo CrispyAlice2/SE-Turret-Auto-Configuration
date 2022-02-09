@@ -28,6 +28,7 @@ namespace IngameScript
         List<IMyMotorAdvancedStator> stator = new List<IMyMotorAdvancedStator>();
         List<IMyCameraBlock> cameras = new List<IMyCameraBlock>();
         List<IMyFunctionalBlock> allFunctionalBlocks = new List<IMyFunctionalBlock>();
+        List<IMyUserControllableGun> guns = new List<IMyUserControllableGun>();
         List<IMyTurretControlBlock> controllers = new List<IMyTurretControlBlock>();
         List<Turret> turrets = new List<Turret>();
 
@@ -67,14 +68,8 @@ namespace IngameScript
             GridTerminalSystem.GetBlocksOfType(cameras);
             GridTerminalSystem.GetBlocksOfType(allFunctionalBlocks);
             GridTerminalSystem.GetBlocksOfType(controllers);
-            List<IMyFunctionalBlock> weapons = new List<IMyFunctionalBlock>();
-            foreach (IMyFunctionalBlock block in allFunctionalBlocks)
-            {
-                if (!block.DisplayNameText.Contains("Gyro") & !block.DisplayNameText.Contains("Camera"))
-                {
-                    weapons.Add(block);
-                }
-            }
+            GridTerminalSystem.GetBlocksOfType(guns);
+            List<IMyFunctionalBlock> weapons = guns.Cast<IMyFunctionalBlock>().ToList();
 
 
             foreach (IMyMotorAdvancedStator stat in stator)
